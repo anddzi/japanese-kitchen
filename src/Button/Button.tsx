@@ -1,10 +1,20 @@
-import { FC, MouseEvent } from "react";
+import React, { FC, MouseEvent } from "react";
 import styles from "./Button.module.scss";
 
 type ButtonProps = {
-  onAddCount: (event: MouseEvent<HTMLButtonElement>) => void;
+  onAction?: (event: MouseEvent<HTMLButtonElement>) => void;
+  children: React.ReactNode;
+  variant: "cancel" | "action";
 };
-const Button: FC<ButtonProps> = ({onAddCount}) => {
-  return <button className={styles.button} type="submit" onClick={onAddCount}>Hinzufügen</button>;
+
+const Button: FC<ButtonProps> = ({ onAction, children, variant }) => {
+  const buttonClass = `${styles.button} ${styles[variant]}`;
+
+  return (
+    <button className={buttonClass} type="submit" onClick={onAction}>
+      {children}
+    </button>
+  );
 };
+
 export default Button;

@@ -4,13 +4,14 @@ import Button from "../Button/Button";
 import Counter from "../Counter/Counter";
 
 type MenuItemProps = {
+  id: string;
   title: string;
   description: string;
   price: string;
-  onSaveCounter: (count: number) => void;
+  onSaveCounter: (id:string, count: number) => void;
 };
 
-const MenuItem: React.FC<MenuItemProps> = ({ title, description, price, onSaveCounter }) => {
+const MenuItem: React.FC<MenuItemProps> = ({ id, title, description, price, onSaveCounter }) => {
 
     const [counter, setCounter] = useState<number>(0);
 
@@ -20,26 +21,27 @@ const MenuItem: React.FC<MenuItemProps> = ({ title, description, price, onSaveCo
     }
 
 
-  const submitHandler = () => {
-    console.log("MenuItem,submitHandler",counter);
-    saveCounter(counter || 0);
-    onSaveCounter(counter || 0);
-    if (counter !== undefined && counter !== 0) {
+    const submitHandler = () => {
+      console.log("MenuItem,submitHandler", counter);
+      onSaveCounter(id, counter); 
       setCounter(0);
-      saveCounter(0);
-    }
-  };
+    };
 
   return (
     <div className={styles.menuItem}>
       <div className={styles.itemDetails}>
-        <h3 className={styles.itemTitle}>{title}</h3>
+        <div className={styles.titleAndCounter}>
+          <h3 className={styles.itemTitle}>{title}</h3>
+          <div className={styles.counterWrapper}>
+            <h4 className={styles.quantityLabel}>Anzahl</h4>
+            <Counter onCount={saveCounter} value={counter} />
+          </div>
+        </div>
         <p className={styles.itemDescription}>{description}</p>
         <div className={styles.itemPriceSection}>
           <p className={styles.itemPrice}>{price}</p>
           <div className={styles.itemActions}>
-            <Counter onCount={saveCounter} value={counter} />
-            <Button onAddCount={submitHandler} />
+            <Button onAction={submitHandler} variant="action">Hinzufügen</Button>
           </div>
         </div>
       </div>

@@ -1,16 +1,7 @@
 .menuItem {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  align-items: flex-start;
 }
 
 .itemDetails {
@@ -43,4 +34,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.titleAndCounter {
+  padding-top: 0; 
+  padding-bottom: 0; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+}
+
+.counterWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.quantityLabel {
+  margin-right: 0.5rem;
 }

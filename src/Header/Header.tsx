@@ -5,15 +5,19 @@ import { FC } from "react";
 
 type HeaderProps = {
   itemCount: number;
+  onOpenModal: (isOpen: boolean) => void;
 };
 
-const Header: FC<HeaderProps> = ({itemCount}) => {
+const Header: FC<HeaderProps> = ({itemCount, onOpenModal}) => {
+  const openModalHandler = () => {
+    onOpenModal(true);
+  };
   return (
     <>
       <header className={styles.headerContainer}>
         <h2>Japona Kukhnya</h2>
         <div>
-          <HeaderCart itemsCount={itemCount} />
+          <HeaderCart itemsCount={itemCount} onOpenModal={openModalHandler}/>
         </div>
       </header>
       <div className={styles.imageWrapper}>

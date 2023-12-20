@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import styles from "./Counter.module.scss";
 
 type CounterProps = {
@@ -7,10 +7,9 @@ type CounterProps = {
 };
 
 const Counter: FC<CounterProps> = ({ onCount, value }) => {
-
   const nameChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     onCount(+event.target.value);
-    console.log("Counter, nameChangeHandler",+event.target.value);
+    console.log("Counter, nameChangeHandler", +event.target.value);
   };
 
   return (
@@ -19,7 +18,8 @@ const Counter: FC<CounterProps> = ({ onCount, value }) => {
       value={value}
       className={styles.itemQuantity}
       onChange={nameChangeHandler}
-    />
+    >
+    </input>
   );
 };
 export default Counter;

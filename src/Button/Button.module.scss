@@ -1,13 +1,23 @@
 .button {
   padding: 0.5rem 1rem;
-  background-color: purple;
-  color: #fff;
-  border: none;
   cursor: pointer;
   border-radius: 20px;
   transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: darken(purple, 10%);
+  &.cancel {
+    border-color: black;
+    border-width: 1px;
+    background-color: white;
+    color: purple; 
+  }
+
+  &.action {
+    border:none;
+    background-color: purple;
+    color: white; 
+
+    &:hover {
+      background-color: darken(purple, 10%);
+    }
   }
 }
