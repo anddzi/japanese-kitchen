@@ -18,7 +18,7 @@ const menuItems = [
     id: "menu2",
     title: "Spice in the salmon",
     description: "rice, salmon, spice sauce",
-    price: "$11.99",
+    price: "$25.99",
     countItem: 0
   },
 ];
