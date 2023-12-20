@@ -1,14 +1,19 @@
 import styles from "./Header.module.scss";
 import image from "../sushi.jpg";
 import HeaderCart from "../HeaderCart/HeaderCart";
+import { FC } from "react";
 
-const Header = () => {
+type HeaderProps = {
+  itemCount: number;
+};
+
+const Header: FC<HeaderProps> = ({itemCount}) => {
   return (
     <>
       <header className={styles.headerContainer}>
         <h2>Japona Kukhnya</h2>
         <div>
-          <HeaderCart itemsCount={5} />
+          <HeaderCart itemsCount={itemCount} />
         </div>
       </header>
       <div className={styles.imageWrapper}>

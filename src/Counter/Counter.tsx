@@ -3,21 +3,20 @@ import styles from "./Counter.module.scss";
 
 type CounterProps = {
   onCount: (count: number) => void;
+  value: number;
 };
 
-const Counter: FC<CounterProps> = ({ onCount }) => {
-  const [count, setCount] = useState<number>(0);
+const Counter: FC<CounterProps> = ({ onCount, value }) => {
 
   const nameChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCount(+event.target.value);
     onCount(+event.target.value);
-    console.log(+event.target.value);
+    console.log("Counter, nameChangeHandler",+event.target.value);
   };
 
   return (
     <input
       type="number"
-      value={count}
+      value={value}
       className={styles.itemQuantity}
       onChange={nameChangeHandler}
     />
