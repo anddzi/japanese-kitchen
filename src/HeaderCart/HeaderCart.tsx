@@ -15,11 +15,13 @@ const CartButton: React.FC<CartButtonProps> = ({ itemsCount, onOpenModal }) => {
     onOpenModal(true)
   }
 
+  const itemProof = itemsCount < 0 ? 0 : itemsCount;
+
   return (
     <button className={styles.button} onClick={openModalHandler}>
       <CartIcon />
       Warenkorb
-      <span className={styles.badge}>{itemsCount}</span>
+      <span className={styles.badge}>{itemProof}</span>
     </button>
   );
 };
