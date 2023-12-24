@@ -18,7 +18,7 @@ const CartButton: React.FC<CartButtonProps> = ({ itemsCount, onOpenModal }) => {
   return (
     <button className={styles.button} onClick={openModalHandler}>
       <CartIcon />
-      Корзина
+      Warenkorb
       <span className={styles.badge}>{itemsCount}</span>
     </button>
   );

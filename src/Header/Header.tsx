@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = ({itemCount, onOpenModal}) => {
   return (
     <>
       <header className={styles.headerContainer}>
-        <h2>Japona Kukhnya</h2>
+        <h2>Japona Kuhnya</h2>
         <div>
           <HeaderCart itemsCount={itemCount} onOpenModal={openModalHandler}/>
         </div>

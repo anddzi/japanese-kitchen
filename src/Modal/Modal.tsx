@@ -41,33 +41,32 @@ const Modal: FC<ModalProps> = ({ onModalClose, menuItems }) => {
           {items.map((item) => (
             <div key={item.id} className={styles.modalItem}>
               <h3 className={styles.itemTitle}>{item.title}</h3>
+              <div className={styles.itemBottom}>
                 <div className={styles.priceAndCounter}>
                   <span className={styles.itemPrice}>{item.price}</span>
-                  <Counter
-                    value={item.countItem}
-                    onCount={() => {
-                      console.log("hier counter");
-                    }}
-                  />
+                  <span
+                    className={styles.itemCount}
+                  >{`x${item.countItem}`}</span>{" "}
                 </div>
-              <div className={styles.itemActions}>
-                <button
-                  className={styles.actionButton}
-                  onClick={() => updateItemCount(item.id, -1)}
-                >
-                  −
-                </button>
-                <button
-                  className={styles.actionButton}
-                  onClick={() => updateItemCount(item.id, 1)}
-                >
-                  +
-                </button>
+                <div className={styles.itemActions}>
+                  <button
+                    className={styles.actionButton}
+                    onClick={() => updateItemCount(item.id, -1)}
+                  >
+                    −
+                  </button>
+                  <button
+                    className={styles.actionButton}
+                    onClick={() => updateItemCount(item.id, 1)}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
             </div>
           ))}
           <div className={styles.totalLine}>
-            <span>Total</span>
+            <span>Gesamt</span>
             <span>{`$${total.toFixed(2)}`}</span>
           </div>
           <div className={styles.modalActions}>

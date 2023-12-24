@@ -1,152 +1,165 @@
 .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 20;
-    background-color: rgba(0, 0, 0, 0.75);
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 40rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
   .modal {
-    position: fixed;
-    top: 20vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 40rem;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    z-index: 30;
-    animation: slide-down 300ms ease-out forwards;
-    overflow: hidden;
+    width: 40rem;
   }
-  
-  @media (min-width: 768px) {
-    .modal {
-      width: 40rem;
-    }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem) translateX(-50%);
   }
-  
-  @keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translateY(-3rem) translateX(-50%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) translateX(-50%);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
   }
-  
-  .modalContent {
-    width: 100%;
-  }
-  
-  .modalItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    padding: 1rem;
-  }
-  
-  .itemInfo {
-    flex-grow: 1;
-  }
-  
-  .itemTitle {
-    font-size: 1.25rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
-  
-  .priceAndCounter {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.5rem 0;
-  }
-  
-  .itemPrice {
-    font-size: 1.5rem;
-    color: purple;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .itemCount {
-    font-size: 1.25rem;
-    color: #333;
-  }
-  
-  .itemActions {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    margin-left: auto;
-  }
-  
-  .actionButton {
-    font: inherit;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #6b068a;
-    border: 1px solid #6b068a;
-    width: 3rem;
-    text-align: center;
-    border-radius: 7px;
-    background-color: transparent;
-    cursor: pointer;
-    margin: 0.25rem;
-  }
-  
-  .actionButton:hover,
-  .actionButton:active {
-    background-color: #47035d;
-    color: white;
-  }
-  
-  .totalLine {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-top: 1px solid #eee;
-  }
-  
-  .modalActions {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1rem;
-    gap: 1rem;
-  }
-  
-  .closeButton {
-    // Styles for the close button
-    background-color: #ccc;
-    color: #333;
-    // Add other styles similar to .actionButton as needed
-  }
-  
-  .closeButton:hover {
-    // Hover styles for the close button
-    background-color: darken(#ccc, 10%);
-  }
-  
-  .orderButton {
-    // Styles for the order button
-    background-color: purple;
-    color: white;
-    // Add other styles similar to .actionButton as needed
-  }
-  
-  .orderButton:hover {
-    // Hover styles for the order button
-    background-color: darken(purple, 10%);
-  }
-  
+}
+
+.modalContent {
+  width: 100%;
+}
+
+.modalItem {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid purple;
+  padding: 1rem;
+}
+
+.itemBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.itemInfo {
+  flex-grow: 1;
+}
+
+.itemDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+.itemTitle {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.priceAndCounter {
+  display: flex;
+  align-items: center;
+}
+
+.itemCount {
+  font-size: 1.25rem; 
+  color: #333;
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  padding: 0.25rem 0.8rem; 
+  border-radius: 8px; 
+  margin-left: 0.5rem; 
+}
+
+.itemPrice {
+  font-size: 1.5rem;
+  color: purple;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  padding-right: 2rem;
+}
+
+.itemCount {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.itemActions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+.actionButton {
+  font: inherit;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #6b068a;
+  border: 1px solid #6b068a;
+  width: 3rem;
+  text-align: center;
+  border-radius: 7px;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+
+.actionButton:hover,
+.actionButton:active {
+  background-color: #47035d;
+  color: white;
+}
+
+.totalLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-top: 1px solid #eee;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.closeButton {
+  background-color: #ccc;
+  color: #333;
+}
+
+.closeButton:hover {
+  background-color: darken(#ccc, 10%);
+}
+
+.orderButton {
+  background-color: purple;
+  color: white;
+}
+
+.orderButton:hover {
+  background-color: darken(purple, 10%);
+}
